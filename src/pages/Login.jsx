@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen p-4 bg-gradient-to-br from-[#00a8cc] to-[#0077b6]">
+    <div className="flex items-center justify-center min-h-screen p-3 sm:p-4 bg-gradient-to-br from-[#00a8cc] to-[#0077b6]">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -55,47 +55,47 @@ const Login = () => {
       </div>
 
       {/* Login Card */}
-      <div className="relative w-full max-w-md">
-        <div className="p-8 border shadow-2xl bg-white/95 backdrop-blur-sm rounded-2xl border-white/20 animate-fade-in">
+      <div className="relative w-full max-w-sm sm:max-w-md">
+        <div className="p-6 sm:p-8 border shadow-2xl bg-white/95 backdrop-blur-sm rounded-xl sm:rounded-2xl border-white/20 animate-fade-in">
           {/* Logo and Header */}
-          <div className="mb-8 text-center">
-            <div className="w-20 h-20 p-1 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#00a8cc] to-[#0077b6]">
+          <div className="mb-6 sm:mb-8 text-center">
+            <div className="w-16 h-16 sm:w-20 sm:h-20 p-1 mx-auto mb-3 sm:mb-4 rounded-full bg-gradient-to-br from-[#00a8cc] to-[#0077b6]">
               <img 
                 src={logo} 
                 alt="College Logo" 
                 className="object-contain w-full h-full p-2 bg-white rounded-full"
               />
             </div>
-            <h1 className="mb-2 text-3xl font-bold text-gray-800">Admin Login</h1>
+            <h1 className="mb-2 text-2xl sm:text-3xl font-bold text-gray-800">Admin Login</h1>
           </div>
 
           {/* Login Form */}
-          <form onSubmit={handleLogin} className="space-y-6">
-            <div className="space-y-4">
+          <form onSubmit={handleLogin} className="space-y-4 sm:space-y-6">
+            <div className="space-y-3 sm:space-y-4">
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <HiMail className="w-5 h-5 text-gray-400" />
+                  <HiMail className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type="email"
                   placeholder="Enter your email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full py-3 pl-10 pr-4 transition-all duration-200 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#00a8cc] focus:border-transparent bg-gray-50 focus:bg-white"
+                  className="w-full py-2.5 sm:py-3 pl-9 sm:pl-10 pr-3 sm:pr-4 text-sm sm:text-base transition-all duration-200 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#00a8cc] focus:border-transparent bg-gray-50 focus:bg-white"
                   required
                 />
               </div>
 
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                  <HiLockClosed className="w-5 h-5 text-gray-400" />
+                  <HiLockClosed className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400" />
                 </div>
                 <input
                   type={showPassword ? "text" : "password"}
                   placeholder="Enter your password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full py-3 pl-10 pr-12 transition-all duration-200 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#00a8cc] focus:border-transparent bg-gray-50 focus:bg-white"
+                  className="w-full py-2.5 sm:py-3 pl-9 sm:pl-10 pr-10 sm:pr-12 text-sm sm:text-base transition-all duration-200 border border-gray-300 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-[#00a8cc] focus:border-transparent bg-gray-50 focus:bg-white"
                   required
                 />
                 <button
@@ -104,16 +104,16 @@ const Login = () => {
                   className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-gray-600 focus:outline-none"
                 >
                   {showPassword ? (
-                    <HiEyeOff className="w-5 h-5" />
+                    <HiEyeOff className="w-4 h-4 sm:w-5 sm:h-5" />
                   ) : (
-                    <HiEye className="w-5 h-5" />
+                    <HiEye className="w-4 h-4 sm:w-5 sm:h-5" />
                   )}
                 </button>
               </div>
             </div>
 
             {error && (
-              <div className="p-3 text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg">
+              <div className="p-3 text-xs sm:text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg">
                 {error}
               </div>
             )}
@@ -121,11 +121,11 @@ const Login = () => {
             <button 
               type="submit" 
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-[#00a8cc] to-[#0077b6] text-white py-3 px-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full bg-gradient-to-r from-[#00a8cc] to-[#0077b6] text-white py-2.5 sm:py-3 px-4 rounded-lg sm:rounded-xl font-semibold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center">
-                  <svg className="w-5 h-5 mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3 -ml-1 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                   </svg>

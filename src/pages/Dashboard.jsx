@@ -88,79 +88,76 @@ const Dashboard = () => {
   }
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      {/*<div className="p-6 text-white bg-gradient-to-r from-college-primary to-college-secondary rounded-xl">
-        <h1 className="mb-2 text-3xl font-bold">Welcome to Dashboard</h1>
-        <p className="text-blue-100">Manage your college fee system efficiently</p>
-      </div>*/}
+    <div className="space-y-4 sm:space-y-6 max-w-full overflow-x-hidden">
+
 
       {/* Stats Cards */}
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <div className="p-6 bg-white border border-gray-100 shadow-lg rounded-xl">
+      <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+        <div className="p-3 sm:p-4 lg:p-6 bg-white border border-gray-100 shadow-lg rounded-lg sm:rounded-xl">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Total Students</p>
-              <p className="text-3xl font-bold text-gray-800">{stats.totalStudents}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">Total Students</p>
+              <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-gray-800 truncate">{stats.totalStudents}</p>
             </div>
-            <div className="flex items-center justify-center w-12 h-12 bg-blue-100 rounded-lg">
-              <HiUsers className="w-6 h-6 text-blue-600" />
+            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-blue-100 rounded-lg flex-shrink-0">
+              <HiUsers className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-600" />
             </div>
           </div>
         </div>
 
-        <div className="p-6 bg-white border border-gray-100 shadow-lg rounded-xl">
+        <div className="p-3 sm:p-4 lg:p-6 bg-white border border-gray-100 shadow-lg rounded-lg sm:rounded-xl">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Paid Fees</p>
-              <p className="text-3xl font-bold text-green-600">{stats.totalFees}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">Paid Fees</p>
+              <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-green-600 truncate">{stats.totalFees}</p>
             </div>
-            <div className="flex items-center justify-center w-12 h-12 bg-green-100 rounded-lg">
-              <HiCash className="w-6 h-6 text-green-600" />
+            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-green-100 rounded-lg flex-shrink-0">
+              <HiCash className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-green-600" />
             </div>
           </div>
         </div>
 
-        <div className="p-6 bg-white border border-gray-100 shadow-lg rounded-xl">
+        <div className="p-3 sm:p-4 lg:p-6 bg-white border border-gray-100 shadow-lg rounded-lg sm:rounded-xl">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Pending Fees</p>
-              <p className="text-3xl font-bold text-red-600">{stats.dueFees}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">Pending Fees</p>
+              <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-red-600 truncate">{stats.dueFees}</p>
             </div>
-            <div className="flex items-center justify-center w-12 h-12 bg-red-100 rounded-lg">
-              <HiClock className="w-6 h-6 text-red-600" />
+            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-red-100 rounded-lg flex-shrink-0">
+              <HiClock className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-red-600" />
             </div>
           </div>
         </div>
 
-        <div className="p-6 bg-white border border-gray-100 shadow-lg rounded-xl">
+        <div className="p-3 sm:p-4 lg:p-6 bg-white border border-gray-100 shadow-lg rounded-lg sm:rounded-xl">
           <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-gray-600">Overdue Fees</p>
-              <p className="text-3xl font-bold text-orange-600">{stats.upcomingFees}</p>
+            <div className="min-w-0 flex-1">
+              <p className="text-xs sm:text-sm font-medium text-gray-600 truncate">Overdue Fees</p>
+              <p className="text-lg sm:text-2xl lg:text-3xl font-bold text-orange-600 truncate">{stats.upcomingFees}</p>
             </div>
-            <div className="flex items-center justify-center w-12 h-12 bg-orange-100 rounded-lg">
-              <HiCalendar className="w-6 h-6 text-orange-600" />
+            <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-orange-100 rounded-lg flex-shrink-0">
+              <HiCalendar className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-orange-600" />
             </div>
           </div>
         </div>
       </div>
 
       {/* Quick Actions */}
-      <div className="p-6 bg-white border border-gray-100 shadow-lg rounded-xl">
-        <h2 className="mb-4 text-xl font-bold text-gray-800">Quick Actions</h2>
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="p-3 sm:p-4 lg:p-6 bg-white border border-gray-100 shadow-lg rounded-lg sm:rounded-xl">
+        <h2 className="mb-3 sm:mb-4 text-lg sm:text-xl font-bold text-gray-800">Quick Actions</h2>
+        <div className="grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           {quickActions.map((action, index) => (
             <Link
               key={index}
               to={action.link}
-              className="p-4 transition-all duration-200 transform rounded-lg group bg-gradient-to-r hover:shadow-lg hover:-translate-y-1"
-              style={{ background: `linear-gradient(135deg, var(--tw-gradient-stops))` }}
+              className="block transition-all duration-200 transform hover:shadow-lg hover:-translate-y-1 rounded-lg sm:rounded-xl overflow-hidden"
             >
-              <div className={`bg-gradient-to-r ${action.color} p-4 rounded-lg text-white`}>
-                <div className="mb-2">{action.icon}</div>
-                <h3 className="text-lg font-semibold">{action.title}</h3>
-                <p className="text-sm opacity-90">{action.description}</p>
+              <div className={`bg-gradient-to-r ${action.color} p-3 sm:p-4 text-white h-full`}>
+                <div className="mb-2 flex justify-center sm:justify-start">
+                  {React.cloneElement(action.icon, { className: 'w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8' })}
+                </div>
+                <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-center sm:text-left mb-1">{action.title}</h3>
+                <p className="text-xs sm:text-sm opacity-90 text-center sm:text-left">{action.description}</p>
               </div>
             </Link>
           ))}

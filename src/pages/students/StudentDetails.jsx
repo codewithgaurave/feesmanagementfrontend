@@ -126,92 +126,93 @@ const StudentDetails = () => {
   }
 
   return (
-    <div className="space-y-6">
+    <div className="w-full max-w-full overflow-x-hidden space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Student Details</h1>
-          <p className="text-gray-600 mt-1">Complete information about {student.name}</p>
+      <div className="w-full flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div className="w-full sm:w-auto">
+          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">Student Details</h1>
+          <p className="text-gray-600 mt-1 text-sm sm:text-base">Complete information about {student.name}</p>
         </div>
-        <div className="flex space-x-3">
-          <PrintStudentDetailsButton 
-            student={student} 
-            fees={fees}
-            size="md"
-          />
-          <PrintPageButton 
-            pageTitle={`${student.name} Details - Career Medical College`}
-            variant="outline"
-            size="md"
-          />
-          <button
-            onClick={() => navigate('/students/show')}
-            className="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors duration-200 flex items-center space-x-2"
-          >
-            <HiArrowLeft className="w-4 h-4" />
-            <span>Back to Students</span>
-          </button>
+        <div className="flex flex-col gap-3 w-full sm:w-auto">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => window.print()}
+              className="flex items-center justify-center px-3 py-2 text-sm text-blue-600 bg-blue-100 rounded-lg hover:bg-blue-200 transition-colors duration-200"
+            >
+              <HiDocumentText className="w-4 h-4 mr-1" />
+              <span className="hidden sm:inline">Print Details</span>
+              <span className="sm:hidden">Print</span>
+            </button>
+            <button
+              onClick={() => navigate('/students/show')}
+              className="flex items-center justify-center px-3 py-2 text-sm text-white bg-gray-500 rounded-lg hover:bg-gray-600 transition-colors duration-200"
+            >
+              <HiArrowLeft className="w-4 h-4 mr-1" />
+              <span className="hidden sm:inline">Back to Students</span>
+              <span className="sm:hidden">Back</span>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Student Info Cards */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="w-full grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
         {/* Personal Information */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <HiUser className="w-5 h-5 mr-2 text-blue-600" />
+        <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
+            <HiUser className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-blue-600" />
             Personal Information
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <div>
-              <p className="text-sm text-gray-500">Full Name</p>
-              <p className="font-medium text-gray-900">{student.name}</p>
+              <p className="text-xs sm:text-sm text-gray-500">Full Name</p>
+              <p className="font-medium text-gray-900 text-sm sm:text-base">{student.name}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Roll Number</p>
-              <p className="font-medium text-gray-900">{student.rollNumber}</p>
+              <p className="text-xs sm:text-sm text-gray-500">Roll Number</p>
+              <p className="font-medium text-gray-900 text-sm sm:text-base">{student.rollNumber}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Class</p>
-              <p className="font-medium text-gray-900">{student.class}</p>
+              <p className="text-xs sm:text-sm text-gray-500">Class</p>
+              <p className="font-medium text-gray-900 text-sm sm:text-base">{student.class}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Phone</p>
-              <p className="font-medium text-gray-900">{student.phone}</p>
+              <p className="text-xs sm:text-sm text-gray-500">Phone</p>
+              <p className="font-medium text-gray-900 text-sm sm:text-base">{student.phone}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Email</p>
-              <p className="font-medium text-gray-900">{student.email}</p>
+              <p className="text-xs sm:text-sm text-gray-500">Email</p>
+              <p className="font-medium text-gray-900 text-sm sm:text-base break-all">{student.email}</p>
             </div>
             <div>
-              <p className="text-sm text-gray-500">Address</p>
-              <p className="font-medium text-gray-900">{student.address}</p>
+              <p className="text-xs sm:text-sm text-gray-500">Address</p>
+              <p className="font-medium text-gray-900 text-sm sm:text-base">{student.address}</p>
             </div>
           </div>
         </div>
 
         {/* Fee Summary */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <FaRupeeSign className="w-5 h-5 mr-2 text-green-600" />
+        <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
+            <FaRupeeSign className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-green-600" />
             Fee Summary
           </h3>
-          <div className="space-y-4">
-            <div className="bg-gray-50 rounded-lg p-4">
-              <p className="text-sm text-gray-500">Total Fee</p>
-              <p className="text-2xl font-bold text-gray-900">₹{student.totalFee?.toLocaleString()}</p>
+          <div className="space-y-3 sm:space-y-4">
+            <div className="bg-gray-50 rounded-lg p-3 sm:p-4">
+              <p className="text-xs sm:text-sm text-gray-500">Total Fee</p>
+              <p className="text-lg sm:text-2xl font-bold text-gray-900">₹{student.totalFee?.toLocaleString()}</p>
             </div>
-            <div className="bg-green-50 rounded-lg p-4">
-              <p className="text-sm text-green-600">Paid Amount</p>
-              <p className="text-xl font-semibold text-green-700">₹{student.paidAmount?.toLocaleString()}</p>
+            <div className="bg-green-50 rounded-lg p-3 sm:p-4">
+              <p className="text-xs sm:text-sm text-green-600">Paid Amount</p>
+              <p className="text-base sm:text-xl font-semibold text-green-700">₹{student.paidAmount?.toLocaleString()}</p>
             </div>
-            <div className="bg-red-50 rounded-lg p-4">
-              <p className="text-sm text-red-600">Due Amount</p>
-              <p className="text-xl font-semibold text-red-700">₹{student.dueAmount?.toLocaleString()}</p>
+            <div className="bg-red-50 rounded-lg p-3 sm:p-4">
+              <p className="text-xs sm:text-sm text-red-600">Due Amount</p>
+              <p className="text-base sm:text-xl font-semibold text-red-700">₹{student.dueAmount?.toLocaleString()}</p>
             </div>
             <div className="pt-2">
-              <p className="text-sm text-gray-500">Fee Status</p>
-              <span className={`inline-flex px-3 py-1 text-sm font-semibold rounded-full ${
+              <p className="text-xs sm:text-sm text-gray-500">Fee Status</p>
+              <span className={`inline-flex px-2 sm:px-3 py-1 text-xs sm:text-sm font-semibold rounded-full ${
                 student.feeStatus === 'paid' ? 'bg-green-100 text-green-800' :
                 student.feeStatus === 'due' ? 'bg-red-100 text-red-800' :
                 'bg-yellow-100 text-yellow-800'
@@ -223,15 +224,15 @@ const StudentDetails = () => {
         </div>
 
         {/* Quick Actions */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center">
-            <HiLightningBolt className="w-5 h-5 mr-2 text-purple-600" />
+        <div className="bg-white rounded-xl shadow-sm p-4 sm:p-6">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 mb-3 sm:mb-4 flex items-center">
+            <HiLightningBolt className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-purple-600" />
             Quick Actions
           </h3>
-          <div className="space-y-3">
+          <div className="space-y-2 sm:space-y-3">
             <button
               onClick={() => navigate(`/students/edit/${student._id}`)}
-              className="w-full bg-blue-100 text-blue-700 px-4 py-3 rounded-lg hover:bg-blue-200 transition-colors duration-200 flex items-center justify-center space-x-2"
+              className="w-full bg-blue-100 text-blue-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-blue-200 transition-colors duration-200 flex items-center justify-center space-x-2 text-sm sm:text-base"
             >
               <HiPencil className="w-4 h-4" />
               <span>Edit Student</span>
@@ -240,7 +241,7 @@ const StudentDetails = () => {
             <button
               onClick={handleSendSMS}
               disabled={actionLoading || !student?.phone}
-              className="w-full bg-green-100 text-green-700 px-4 py-3 rounded-lg hover:bg-green-200 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50"
+              className="w-full bg-green-100 text-green-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-green-200 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 text-sm sm:text-base"
               title={!student?.phone ? 'Phone number not available' : 'Send SMS reminder'}
             >
               <HiChatAlt className="w-4 h-4" />
@@ -250,7 +251,7 @@ const StudentDetails = () => {
             <button
               onClick={handleMakeCall}
               disabled={actionLoading || !student?.phone}
-              className="w-full bg-yellow-100 text-yellow-700 px-4 py-3 rounded-lg hover:bg-yellow-200 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50"
+              className="w-full bg-yellow-100 text-yellow-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-yellow-200 transition-colors duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 text-sm sm:text-base"
               title={!student?.phone ? 'Phone number not available' : 'Make call'}
             >
               <HiPhone className="w-4 h-4" />
@@ -259,7 +260,7 @@ const StudentDetails = () => {
             
             <button
               onClick={() => navigate(`/fees/details/${student._id}`)}
-              className="w-full bg-purple-100 text-purple-700 px-4 py-3 rounded-lg hover:bg-purple-200 transition-colors duration-200 flex items-center justify-center space-x-2"
+              className="w-full bg-purple-100 text-purple-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg hover:bg-purple-200 transition-colors duration-200 flex items-center justify-center space-x-2 text-sm sm:text-base"
             >
               <HiDocumentText className="w-4 h-4" />
               <span>Fee Details</span>
@@ -269,15 +270,16 @@ const StudentDetails = () => {
       </div>
 
       {/* Fee History */}
-      <div className="bg-white rounded-xl shadow-sm overflow-hidden">
-        <div className="px-6 py-4 border-b border-gray-200">
-          <h3 className="text-lg font-semibold text-gray-900 flex items-center">
-            <HiDocumentText className="w-5 h-5 mr-2 text-indigo-600" />
+      <div className="w-full bg-white rounded-xl shadow-sm overflow-hidden">
+        <div className="px-4 sm:px-6 py-3 sm:py-4 border-b border-gray-200">
+          <h3 className="text-base sm:text-lg font-semibold text-gray-900 flex items-center">
+            <HiDocumentText className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-indigo-600" />
             Fee History
           </h3>
         </div>
         
-        <div className="overflow-x-auto">
+        {/* Desktop Table View */}
+        <div className="hidden lg:block overflow-x-auto">
           <table className="w-full">
             <thead className="bg-gray-50">
               <tr>
@@ -331,12 +333,69 @@ const StudentDetails = () => {
             </tbody>
           </table>
         </div>
+        
+        {/* Mobile Card View */}
+        <div className="lg:hidden p-3 sm:p-4">
+          <div className="space-y-3 sm:space-y-4">
+            {fees.map((fee) => (
+              <div key={fee._id || fee.id} className="bg-white border border-gray-200 rounded-xl p-4 shadow-sm">
+                {/* Fee Header */}
+                <div className="flex items-center justify-between mb-3">
+                  <div>
+                    <div className="text-sm font-semibold text-gray-900">{fee.feeType}</div>
+                    {fee.receiptNumber && (
+                      <div className="text-xs text-gray-500">Receipt: {fee.receiptNumber}</div>
+                    )}
+                  </div>
+                  <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                    fee.status === 'paid' ? 'bg-green-100 text-green-800' :
+                    fee.status === 'due' ? 'bg-red-100 text-red-800' :
+                    'bg-yellow-100 text-yellow-800'
+                  }`}>
+                    {fee.status?.toUpperCase()}
+                  </span>
+                </div>
+
+                {/* Fee Details */}
+                <div className="grid grid-cols-2 gap-3 mb-3 text-xs">
+                  <div>
+                    <span className="text-gray-500">Amount:</span>
+                    <div className="font-medium text-gray-700">₹{fee.amount?.toLocaleString()}</div>
+                  </div>
+                  <div>
+                    <span className="text-gray-500">Due Date:</span>
+                    <div className="font-medium text-gray-700">{fee.dueDate}</div>
+                  </div>
+                  {fee.paidDate && (
+                    <div className="col-span-2">
+                      <span className="text-gray-500">Paid Date:</span>
+                      <div className="font-medium text-green-600">{fee.paidDate}</div>
+                    </div>
+                  )}
+                </div>
+
+                {/* Actions */}
+                {fee.status !== 'paid' && (
+                  <div className="pt-3 border-t border-gray-100">
+                    <button
+                      onClick={() => handlePayFee(fee._id || fee.id)}
+                      disabled={actionLoading}
+                      className="w-full flex items-center justify-center px-3 py-2 text-xs text-white bg-green-600 rounded-lg hover:bg-green-700 transition-colors duration-200 disabled:opacity-50"
+                    >
+                      {actionLoading ? 'Processing...' : 'Mark as Paid'}
+                    </button>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
 
         {fees.length === 0 && (
-          <div className="text-center py-12">
-            <HiDocumentText className="mx-auto h-12 w-12 text-gray-400" />
+          <div className="text-center py-8 sm:py-12">
+            <HiDocumentText className="mx-auto h-8 w-8 sm:h-12 sm:w-12 text-gray-400" />
             <h3 className="mt-2 text-sm font-medium text-gray-900">No fee records</h3>
-            <p className="mt-1 text-sm text-gray-500">No fee records found for this student.</p>
+            <p className="mt-1 text-xs sm:text-sm text-gray-500">No fee records found for this student.</p>
           </div>
         )}
       </div>
